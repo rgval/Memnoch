@@ -6,14 +6,25 @@
 - build-essential
 - gh
 - git
-- gvim
+- jsonlint
 - Kate
 - kdevelop
-- kdevelop python support
-- lint
+- kdevelop-python
+- neovim
+- pyflakes3
+- pylama
 - pylint
+- python3-flake8-class-newline
+- python3-flake8-class-newline
+- python3-flake8-deprecated
+- python3-flake8-import-order
+- python3-flake8-quotes
+- shellcheck
 - vim
-- VS Code
+- vim-ale
+- yamllint
+
+`sudo apt install build-essential gh git kate kdevelop kdevelop-python jsonlint neovim pyflakes3 pylama pylint python3-flake8-class-newline python3-flake8-deprecated python3-flake8-import-order python3-flake8-quotes shellcheck vim vim-ale yamllint`
 
 ### Games
 - 0 A.D.
@@ -82,6 +93,9 @@
 
   - Install the package and automatically set up the official repository
     - `sudo apt install ./google-chrome-stable_current_amd64.deb`
+- Install VS Code
+- `wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"`
+
 
 ### Office
 - Libreoffice
