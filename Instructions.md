@@ -61,7 +61,6 @@
 - curl
 - evolution
 - filezilla
-- Google Chrome
 - hexchat
 - Konversation
 - remmina
@@ -76,7 +75,13 @@
 ### Manual Install
 - Warzone 2100
 - Veracrypt
-- QT Label 
+- QT Label
+- Google Chrome
+  - Download the latest stable Google Chrome package
+    - `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
+
+  - Install the package and automatically set up the official repository
+    - `sudo apt install ./google-chrome-stable_current_amd64.deb`
 
 ### Office
 - Libreoffice
@@ -314,8 +319,4 @@ If you are curious you can check the setting before and after the reboot with su
 The change will be applied with the reboot after step 6. (7.)
 
 Google Chrome
-# 1. Download the latest stable Google Chrome package
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
-# 2. Install the package and automatically set up the official repository
-sudo apt install ./google-chrome-stable_current_amd64.deb
