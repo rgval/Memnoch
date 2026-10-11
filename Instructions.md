@@ -381,6 +381,7 @@ The change will be applied with the reboot after step 6. (7.)
 
 ## Mount Drives
 Create the mount points for the Second Hard Drive and the NAS
+NOTE: The IP address on Memnoch must be set correctly or the NAS will reject the connection.
 
 ```
 sudo mkdir /media/shared
