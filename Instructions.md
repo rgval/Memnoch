@@ -106,7 +106,8 @@ sudo apt install -y 0ad kigo kmahjongg kmines kpat ksudoku
 - vlc
 
 ```bash
-sudo apt install -y gimagereader gimp libdvd-pkg krita kubuntu-restricted-extras mediainfo picard shortwave shotwell  vlc 
+sudo apt install -y gimagereader gimp libdvd-pkg krita kubuntu-restricted-extras mediainfo picard shortwave shotwell  vlc
+sudo dpkg-reconfigure libdvd-pkg
 ```
 
 
@@ -160,18 +161,30 @@ sudo apt install -y gufw keepassxc
 
 ### Manual Install
 - Warzone 2100
+```bash
+wget https://downloads.sourceforge.net/project/warzone2100/releases/4.7.0/warzone2100_ubuntu24.04_amd64.deb
+sudo apt install ./warzone2100_ubuntu24.04_amd64.deb
+```
 - Veracrypt
 - QT Label
 - Calibre
-- 
-- Google Chrome
-  - Download the latest stable Google Chrome package
-    - `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
 
-  - Install the package and automatically set up the official repository
-    - `sudo apt install ./google-chrome-stable_current_amd64.deb`
+```bash
+sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+```
+
+- Google Chrome
+```bash
+#Download the latest stable Google Chrome package
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#Install the package and automatically set up the official repository
+sudo apt install ./google-chrome-stable_current_amd64.deb
+```
+
 - Install VS Code
-- `wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"`
+```bash
+wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"`
+```
 
 
 ### Office
