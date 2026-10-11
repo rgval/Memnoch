@@ -24,7 +24,7 @@
 - vim-ale
 - yamllint
 
-`sudo apt install build-essential gh git kate kdevelop kdevelop-python jsonlint neovim pyflakes3 pylama pylint python3-flake8-class-newline python3-flake8-deprecated python3-flake8-import-order python3-flake8-quotes shellcheck vim vim-ale yamllint`
+`sudo apt install -y build-essential gh git kate kdevelop kdevelop-python jsonlint neovim pyflakes3 pylama pylint python3-flake8-class-newline python3-flake8-deprecated python3-flake8-import-order python3-flake8-quotes shellcheck vim vim-ale yamllint`
 
 ### Games
 - 0 A.D.
@@ -53,9 +53,7 @@
 ### System Tools
 - bashtop
 - bleachbit
-- bulk rename
-- disk usage analyzer
-- Document Scanner
+- filelight (disk usage analyzer)
 - dolphin
 - elisa
 - errands
@@ -64,9 +62,12 @@
 - gparted
 - gprename
 - htop
+- simple-scan
 - solaar
 - system-config-printer
 - variety
+
+`sudo apt install -y bashtop bleachbit filelight  dolphin elisa errands file-roller fsearch gparted gprename htop simple-scan solaar system-config-printer variety`
 
 ### Internet
 - curl
@@ -74,19 +75,26 @@
 - filezilla
 - hexchat
 - Konversation
+- nfs-common
 - remmina
-- sabnzbd+
+- sabnzbdplus
 - transmission
+- wget
+
+`sudo apt install -y curl evolution filezilla hexchat konversation remmina sabnzbdplus transmission wget`
 
 ### Security
 - gufw
 - keepassxc
-- kmymoney
+
+`sudo apt install -y gufw keepassxc`
 
 ### Manual Install
 - Warzone 2100
 - Veracrypt
 - QT Label
+- Calibre
+- 
 - Google Chrome
   - Download the latest stable Google Chrome package
     - `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
@@ -99,7 +107,7 @@
 
 ### Office
 - Libreoffice
-
+- kmymoney
 
 
 ## After Install Changes
@@ -332,5 +340,30 @@ If you are curious you can check the setting before and after the reboot with su
 (this writes the modified value to your system)
 The change will be applied with the reboot after step 6. (7.)
 
-Google Chrome
+## Mount Drives
+Create the mount points for the Second Hard Drive and the NAS
 
+```
+sudo mkdir /media/shared
+sudo mkdir /mnt/audiobooks
+sudo mkdir /mnt/calibre-libraries
+sudo mkdir /mnt/home
+sudo mkdir /mnt/movies
+sudo mkdir /mnt/music
+sudo mkdir /mnt/photo
+sudo mkdir /mnt/tv
+sudo mkdir /mnt/video
+```
+
+Edit /etc/fstab
+```
+UUID=2023c085-62fa-4219-884f-e5e215a0c15f /media/shared	ext4	defaults	0 1
+192.168.1.50:volume1/audiobooks /mnt/audiobooks nfs defaults 0
+192.168.1.50:volume1/calibre-libraries /mnt/calibre-libraries nfs defaults 0
+192.168.1.50:volume1/homes/rgval /mnt/home nfs defaults 0
+192.168.1.50:volume1/movies /mnt/movies nfs defaults 0
+192.168.1.50:volume1/music /mnt/music nfs defaults 0
+192.168.1.50:volume1/photo /mnt/photo nfs defaults 0
+192.168.1.50:volume1/tv /mnt/tv nfs defaults 0
+192.168.1.50:volume1/video /mnt/video nfs defaults 0
+```
