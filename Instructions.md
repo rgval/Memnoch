@@ -3,41 +3,55 @@
 ## Configure Network
 Check the IP address
 
-`IP addr`
+```bash
+ip addr
+```
 
 If the IP address is not 192.168.1.10, it need to be changed
 
 Verify the Connection Name:
 
-`nmcli connection show`
+```bash
+nmcli connection show
+```
 
 Changing the IP Address:
 
 1. Change the IP address and Subnet (e.g., /24 for 255.255.255.0)
 
-`sudo nmcli connection modify "Wired connection 1" ipv4.addresses 192.168.1.10/24`
+```bash
+sudo nmcli connection modify "Wired connection 1" ipv4.addresses 192.168.1.10/24
+```
 
 2. Set the Gateway IP
 
-`sudo nmcli connection modify "Wired connection 1" ipv4.gateway 192.168.1.1`
+```bash
+sudo nmcli connection modify "Wired connection 1" ipv4.gateway 192.168.1.1
+```
 
 3. Set the DNS servers (separated by spaces if multiple)
 
-`sudo nmcli connection modify "Wired connection 1" ipv4.dns "192.168.1.1 8.8.8.8 8.8.4.4"`
+```bash
+sudo nmcli connection modify "Wired connection 1" ipv4.dns "192.168.1.1 8.8.8.8 8.8.4.4"
+```
 
 4. Switch the method from DHCP (Automatic) to Manual
 
-`sudo nmcli connection modify "Wired connection 1" ipv4.method manual`
+```bash
+sudo nmcli connection modify "Wired connection 1" ipv4.method manual
+```
 
 5. Apply the Changes
 
-`sudo nmcli connection down "Wired connection 1" && sudo nmcli connection up "Wired connection 1"`
+```bash
+sudo nmcli connection down "Wired connection 1" && sudo nmcli connection up "Wired connection 1"
+```
 
 6 Verify the IP Address change 
 
-`IP addr`
-
-
+```bash
+ip addr
+```
 
 ## Install Files
 
@@ -63,16 +77,21 @@ Changing the IP Address:
 - vim-ale
 - yamllint
 
-`sudo apt install -y build-essential gh git kate kdevelop kdevelop-python jsonlint neovim pyflakes3 pylama pylint python3-flake8-class-newline python3-flake8-deprecated python3-flake8-import-order python3-flake8-quotes shellcheck vim vim-ale yamllint`
+```bash
+sudo apt install -y build-essential gh git kate kdevelop kdevelop-python jsonlint neovim pyflakes3 pylama pylint python3-flake8-class-newline python3-flake8-deprecated python3-flake8-import-order python3-flake8-quotes shellcheck vim vim-ale yamllint
+```
 
 ### Games
 - 0 A.D.
 - kigo
 - kmahjongg
 - kmines
-- kpatience
+- kpat
 - ksudoku
-- Warzone
+
+```bash
+sudo apt install -y 0ad kigo kmahjongg kmines kpat ksudoku
+```
 
 ### AV
 - gImageReader
@@ -88,6 +107,10 @@ Changing the IP Address:
 - Skanpage
 - vlc
 - Xsane
+
+```bash
+```
+
 
 ### System Tools
 - bashtop
@@ -106,7 +129,9 @@ Changing the IP Address:
 - system-config-printer
 - variety
 
-`sudo apt install -y bashtop bleachbit filelight  dolphin elisa errands file-roller fsearch gparted gprename htop simple-scan solaar system-config-printer variety`
+```bash
+sudo apt install -y bashtop bleachbit filelight  dolphin elisa errands file-roller fsearch gparted gprename htop simple-scan solaar system-config-printer variety
+```
 
 ### Internet
 - curl
@@ -120,13 +145,17 @@ Changing the IP Address:
 - transmission
 - wget
 
-`sudo apt install -y curl evolution filezilla hexchat konversation remmina sabnzbdplus transmission wget`
+```bash
+sudo apt install -y curl evolution filezilla hexchat konversation remmina sabnzbdplus transmission wget
+```
 
 ### Security
 - gufw
 - keepassxc
 
-`sudo apt install -y gufw keepassxc`
+```bash
+sudo apt install -y gufw keepassxc
+```
 
 ### Manual Install
 - Warzone 2100
@@ -383,7 +412,7 @@ The change will be applied with the reboot after step 6. (7.)
 Create the mount points for the Second Hard Drive and the NAS
 NOTE: The IP address on Memnoch must be set correctly or the NAS will reject the connection.
 
-```
+```bash
 sudo mkdir /media/shared
 sudo mkdir /mnt/audiobooks
 sudo mkdir /mnt/calibre-libraries
@@ -397,7 +426,7 @@ sudo mkdir /mnt/video
 
 Edit /etc/fstab
 
-```
+```bash
 UUID=2023c085-62fa-4219-884f-e5e215a0c15f /media/shared	ext4	defaults	0 1
 192.168.1.50:volume1/audiobooks /mnt/audiobooks nfs defaults 0
 192.168.1.50:volume1/calibre-libraries /mnt/calibre-libraries nfs defaults 0
@@ -410,8 +439,12 @@ UUID=2023c085-62fa-4219-884f-e5e215a0c15f /media/shared	ext4	defaults	0 1
 ```
 Reload the systemctl so that machine recognizes the new drives
 
-`sudo systemctl daemon-reload`
+```bash
+sudo systemctl daemon-reload
+```
 
 Mount the new Drives and Folders
 
-`mount -a'
+```bash
+mount -a
+```
