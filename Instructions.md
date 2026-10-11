@@ -1,5 +1,44 @@
 # Instructions on Rebuilding Memnoch
 
+## Configure Network
+Check the IP address
+
+`IP addr`
+
+If the IP address is not 192.168.1.10, it need to be changed
+
+Verify the Connection Name:
+
+`nmcli connection show`
+
+Changing the IP Address:
+
+1. Change the IP address and Subnet (e.g., /24 for 255.255.255.0)
+
+`sudo nmcli connection modify "Wired connection 1" ipv4.addresses 192.168.1.10/24`
+
+2. Set the Gateway IP
+
+`sudo nmcli connection modify "Wired connection 1" ipv4.gateway 192.168.1.1`
+
+3. Set the DNS servers (separated by spaces if multiple)
+
+`sudo nmcli connection modify "Wired connection 1" ipv4.dns "192.168.1.1 8.8.8.8 8.8.4.4"`
+
+4. Switch the method from DHCP (Automatic) to Manual
+
+`sudo nmcli connection modify "Wired connection 1" ipv4.method manual`
+
+5. Apply the Changes
+
+`sudo nmcli connection down "Wired connection 1" && sudo nmcli connection up "Wired connection 1"`
+
+6 Verify the IP Address change 
+
+`IP addr`
+
+
+
 ## Install Files
 
 ### Development
