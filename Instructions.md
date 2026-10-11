@@ -100,15 +100,13 @@ sudo apt install -y 0ad kigo kmahjongg kmines kpat ksudoku
 - krita
 - kubuntu-restricted-extras
 - mediainfo
-- MusicBrainz Picard
+- picard
 - shortwave
 - shotwell
-- SkanLite
-- Skanpage
 - vlc
-- Xsane
 
 ```bash
+sudo apt install -y gimagereader gimp libdvd-pkg krita kubuntu-restricted-extras mediainfo picard shortwave shotwell  vlc 
 ```
 
 
@@ -125,12 +123,15 @@ sudo apt install -y 0ad kigo kmahjongg kmines kpat ksudoku
 - gprename
 - htop
 - simple-scan
+- skanlite
+- skanpage
 - solaar
 - system-config-printer
 - variety
+- xsane
 
 ```bash
-sudo apt install -y bashtop bleachbit filelight  dolphin elisa errands file-roller fsearch gparted gprename htop simple-scan solaar system-config-printer variety
+sudo apt install -y bashtop bleachbit filelight  dolphin elisa errands file-roller fsearch gparted gprename htop simple-scan skanlite skanpage solaar system-config-printer variety xsane
 ```
 
 ### Internet
