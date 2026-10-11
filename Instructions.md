@@ -107,7 +107,6 @@ sudo apt install -y 0ad kigo kmahjongg kmines kpat ksudoku
 
 ```bash
 sudo apt install -y gimagereader gimp libdvd-pkg krita kubuntu-restricted-extras mediainfo picard shortwave shotwell  vlc
-sudo dpkg-reconfigure libdvd-pkg
 ```
 
 
@@ -153,22 +152,27 @@ sudo apt install -y curl evolution filezilla hexchat konversation remmina sabnzb
 
 ### Security
 - gufw
-- keepassxc
+- keepass2
+- keepass2-doc
+- keepass2-plugin-hibpofflinecheck
 
 ```bash
-sudo apt install -y gufw keepassxc
+sudo apt install -y gufw keepass2 keepass2-doc keepass2-plugin-hibpofflinecheck
 ```
 
 ### Manual Install
-- Warzone 2100
+- Warzone 2100 - Requires Flatpak
 ```bash
-wget https://downloads.sourceforge.net/project/warzone2100/releases/4.7.0/warzone2100_ubuntu24.04_amd64.deb
-sudo apt install ./warzone2100_ubuntu24.04_amd64.deb
+flatpak install flathub net.wz2100.wz2100
+flatpak run net.wz2100.wz2100
 ```
 - Veracrypt
+```bash
+wget https://github.com/veracrypt/VeraCrypt/releases/download/VeraCrypt_1.26.29/veracrypt-1.26.29-Ubuntu-26.04-amd64.deb
+sudo apt install ./veracrypt-1.26.29-Ubuntu-26.04-amd64.deb
+```
 - QT Label
 - Calibre
-
 ```bash
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
 ```
