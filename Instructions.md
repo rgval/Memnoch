@@ -395,6 +395,7 @@ sudo mkdir /mnt/video
 ```
 
 Edit /etc/fstab
+
 ```
 UUID=2023c085-62fa-4219-884f-e5e215a0c15f /media/shared	ext4	defaults	0 1
 192.168.1.50:volume1/audiobooks /mnt/audiobooks nfs defaults 0
@@ -406,3 +407,10 @@ UUID=2023c085-62fa-4219-884f-e5e215a0c15f /media/shared	ext4	defaults	0 1
 192.168.1.50:volume1/tv /mnt/tv nfs defaults 0
 192.168.1.50:volume1/video /mnt/video nfs defaults 0
 ```
+Reload the systemctl so that machine recognizes the new drives
+
+`sudo systemctl daemon-reload`
+
+Mount the new Drives and Folders
+
+`mount -a'
