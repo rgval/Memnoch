@@ -60,7 +60,7 @@ ip addr
 - gh
 - git
 - jsonlint
-- Kate
+- kate
 - kdevelop
 - kdevelop-python
 - neovim
@@ -160,10 +160,18 @@ sudo apt install -y curl evolution filezilla hexchat konversation remmina sabnzb
 sudo apt install -y gufw keepass2 keepass2-doc keepass2-plugin-hibpofflinecheck
 ```
 
+### Enable Flatpak support
+Flatpak is a popular package format runs in sandbox environment. Tons of applications support Linux through Flatpak package.
+
+```bash
+sudo apt install flatpak
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
+
 ### Manual Install
 - Warzone 2100 - Requires Flatpak
 ```bash
-flatpak install flathub net.wz2100.wz2100
+flatpak install -y flathub net.wz2100.wz2100
 flatpak run net.wz2100.wz2100
 ```
 - Veracrypt
@@ -171,7 +179,14 @@ flatpak run net.wz2100.wz2100
 wget https://github.com/veracrypt/VeraCrypt/releases/download/VeraCrypt_1.26.29/veracrypt-1.26.29-Ubuntu-26.04-amd64.deb
 sudo apt install ./veracrypt-1.26.29-Ubuntu-26.04-amd64.deb
 ```
-- QT Label
+- gLabels-qt 4.0
+```bash
+#https://github.com/j-evins/glabels-qt
+sudo add-apt-repository -y ppa:krisives/glabels-qt
+sudo apt update
+sudo apt install -y glabels-qt
+```
+- 
 - Calibre
 ```bash
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
@@ -187,7 +202,8 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 
 - Install VS Code
 ```bash
-wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"`
+wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+sudo apt install -y ./vscode.deb
 ```
 
 
@@ -197,23 +213,6 @@ wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=l
 
 
 ## After Install Changes
-
-### Enable Flatpak support
-Flatpak is a popular package format runs in sandbox environment. Tons of applications support Linux through Flatpak package.
-
-`sudo apt install flatpak`
-
-Next, you may install local flatpak files by running command:
-
-`flatpak install drag-and-drop-flatpak-file-here`
-
-Or, add the Flathub repository into system:
-
-`flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo`
-
-For choice, add --user flag for current user only. Then, use the command in a Flathub app page to install (click down arrow besides “Install” button).
-
-**NOTE:** After enabled Flatpak support, you need a log out and back in to apply the variable changes.
 
 ### Install Thunderbird via PPA
 The Ubuntu Team members have been maintaining the “Mozilla Team” PPA for many years. The PPA contains the Thunderbird ESR (v140 so far), Firefox ESR, and Firefox stable as .deb packages.
