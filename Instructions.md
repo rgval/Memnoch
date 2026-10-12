@@ -206,6 +206,39 @@ wget -O vscode.deb "https://code.visualstudio.com/sha/download?build=stable&os=l
 sudo apt install -y ./vscode.deb
 ```
 
+- Install M4B-tool (https://github.com/sandreas/m4b-tool)
+
+# install all dependencies
+```bash
+sudo apt install -y ffmpeg fdkaac php-cli php-intl php-json php-mbstring php-xml php-curl php-zip
+```
+
+# install mp4v2-utils (https://github.com/enzo1982/mp4v2/ or https://mp4v2.org/)
+```
+# 
+wget https://github.com/enzo1982/mp4v2/releases/download/v2.1.3/mp4v2-2.1.3.tar.bz2
+bunzip2 mp4v2-2.1.3.tar.bz2
+tar xvf mp4v2-2.1.3.tar
+cd mp4v2-2.1.3
+./configure && make && sudo make install
+```
+### install / upgrade m4b-tool
+```bash
+sudo wget https://github.com/sandreas/m4b-tool/releases/download/v0.5.2/m4b-tool.phar -O /usr/local/bin/m4b-tool && sudo chmod +x /usr/local/bin/m4b-tool
+```
+### check installed m4b-tool version
+```bash
+m4b-tool --version
+```
+
+### Install Tone
+```bash
+# linux-x64
+wget https://github.com/sandreas/tone/releases/download/v0.2.5/tone-0.2.5-linux-x64.tar.gz
+tar xzf tone-*.tar.gz
+sudo mv tone*/tone /usr/local/bin/
+tone --help
+```
 
 ### Office
 - Libreoffice
