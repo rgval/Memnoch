@@ -94,8 +94,11 @@ sudo apt install -y 0ad kigo kmahjongg kmines kpat ksudoku
 ```
 
 ### AV
+- fonts-crosextra-carlito
+- fonts-crosextra-caladea
 - gImageReader
 - gimp
+- gstreamer1.0-vaapi
 - libdvd-pkg
 - krita
 - kubuntu-restricted-extras
@@ -106,8 +109,10 @@ sudo apt install -y 0ad kigo kmahjongg kmines kpat ksudoku
 - vlc
 
 ```bash
-sudo apt install -y gimagereader gimp libdvd-pkg krita kubuntu-restricted-extras mediainfo picard shortwave shotwell  vlc
+sudo apt install -y fonts-crosextra-carlito fonts-crosextra-caladea gimagereader gimp gstreamer1.0-vaapi libdvd-pkg krita kubuntu-restricted-extras mediainfo picard shortwave shotwell  vlc
+sudo dpkg-reconfigure libdvd-pkg
 ```
+
 
 ### System Tools
 - bashtop
@@ -298,6 +303,8 @@ After setting up your system and installing all necessary apps, tidy up system r
 ```bash
 sudo apt autoremove -y
 sudo apt clean
+sudo apt autopurge
+sudo apt autoclean
 flatpak uninstall --unused -y
 ```
 
@@ -368,53 +375,14 @@ Update your GRUB boot loader with the new values
 
 `sudo update-grub`
 
-4. Update your system and your programs for the first time
-
-This is generally one of the first things you should do after installing any operating system.
-This updates your installation
-
-```
-sudo apt update && sudo apt full-upgrade
 sudo apt autopurge && sudo apt autoclean
 ```
-
-
-6. Install missing essential software for desktop installations like
-    • multimedia codecs etc.
-    • Microsoft Web and replacement fonts.
-
-    sudo apt install kubuntu-restricted-extras gstreamer1.0-vaapi fonts-crosextra-carlito fonts-crosextra-caladea
-
-
-7. If you have a DVD or Blu-ray drive, install libdvdcss to be able to play back e.g. encrypted video DVDs.
-
-    • sudo apt install libdvd-pkg
-(this installs the play back for encrypted media)
-    • sudo dpkg-reconfigure libdvd-pkg
-(this activates the play back for encrypted media)
-
-    
-
-Bonus - 6 individual and potentially less important things to do:
-
-Everything with a grey background behind a single "⦁" is a whole command and has to be copied into Konsole as a whole - even if it is longer than one line.
-
 
 c. Enable the X11 session additionally to Wayland - like openSUSE Tumbleweed does and like TUXEDO OS offers during installation
 (e.g. because you encounter problems in Wayland or use certain programs that require a “real” X11 session).
 sudo apt update && sudo apt install plasma-session-x11
 
 (this installs the X11 session)
-
-Next be sure that “Automatically log in:” is off
-in -> System Settings -> Colours & Themes (section: Appearance & Style) -> Login Screen (SDDM) -> [Behaviour…] (this is a button at the top).
-Now
-• reboot
-and click on "Desktop Session: Plasma (Wayland)" and choose "Plasma (X11)" in the lower left corner of the log in screen to use X11 instead of Wayland.
-
-From now on you can always switch back and forth between X11 and Wayland simply by logging out and choosing the desired session.
-Note: Occasionally switching directly between X11 and Wayland sessions does not work reliably - instead a system restart is required.​
-
 
 d. Always start with an empty session
 (e.g. for stability, performance or security reasons).
@@ -433,27 +401,6 @@ e. Disable fast user switching
 (this writes the modified values for all users to your system)
 You will have to log out and in again or reboot to apply the change.
 
-
-f. Enable a local firewall
-(e.g. if you don't connect to the internet via a modern router with an integrated firewall - please check with your router's manufacturer - or if you connect to the internet in a different way).
-
-Go to -> System Settings -> Wi-Fi & Internet (section: Networking) -> Firewall
-enter your password
-and change the slider at the top from "Disabled" to "Enabled".
-Finally, you must enter your password two more times.
-
-The local ufw firewall is now enabled with default settings.
-
-Last edited by Schwarzer Kater; Jun 01, 2026, 06:54 AM. Reason: added claydoh's suggestion to step
-
-
-
-2. Reduce swappiness for desktop installations like it is suggested for *Ubuntu and like e.g. TUXEDO OS also does it
-(= the system will prioritize freeing up parts of physical memory a bit more over using the swap file or partition).
-If you are curious you can check the setting before and after the reboot with sudo sysctl vm.swappiness.
-    • echo -e "# Reduce swappiness for desktop installation (default = 60)\nvm.swappiness=10" | sudo tee /etc/sysctl.d/99-sysswappiness.conf
-(this writes the modified value to your system)
-The change will be applied with the reboot after step 6. (7.)
 
 ## Mount Drives
 Create the mount points for the Second Hard Drive and the NAS
