@@ -282,15 +282,28 @@ sudo apt install -y ./vscode.deb
   sudo apt update
   sudo apt install thunderbird
   ```
+- NordVPN
+```bash
+sh <(wget -qO - https://downloads.nordcdn.com/apps/linux/install.sh) -p nordvpn-gui
+```
 
-## After Install Changes
-
-### Enable Restricted and Multiverse Repositories
-
+- Enable Restricted and Multiverse Repositories
 ```bash
 sudo add-apt-repository restricted
 sudo add-apt-repository multiverse
 ```
+
+- Clean Up Unused Packages and Cache
+After setting up your system and installing all necessary apps, tidy up system repositories and free up disk space by removing leftover dependencies:
+```bash
+sudo apt autoremove -y
+sudo apt clean
+flatpak uninstall --unused -y
+```
+
+## After Install Changes
+
+
 
 ### Setup Firewall and Security Hardening
 Security should be a priority. Ubuntu comes with a built-in firewall manager called ufw (Uncomplicated Firewall), but it is disabled by default.
@@ -304,14 +317,7 @@ To verify the status of your firewall rules:
 
 `sudo ufw status verbose`
 
-10. Clean Up Unused Packages and Cache
-After setting up your system and installing all necessary apps, tidy up system repositories and free up disk space by removing leftover dependencies:
 
-```
-sudo apt autoremove -y
-sudo apt clean
-flatpak uninstall --unused -y
-```
 
 ## System Updates
 
