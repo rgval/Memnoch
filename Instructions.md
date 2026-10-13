@@ -109,7 +109,6 @@ sudo apt install -y 0ad kigo kmahjongg kmines kpat ksudoku
 sudo apt install -y gimagereader gimp libdvd-pkg krita kubuntu-restricted-extras mediainfo picard shortwave shotwell  vlc
 ```
 
-
 ### System Tools
 - bashtop
 - bleachbit
@@ -193,7 +192,6 @@ sudo add-apt-repository -y ppa:krisives/glabels-qt
 sudo apt update
 sudo apt install -y glabels-qt
 ```
-- 
 - Calibre
 ```bash
 sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
@@ -215,12 +213,12 @@ sudo apt install -y ./vscode.deb
 
 - Install M4B-tool (https://github.com/sandreas/m4b-tool)
 
-  #install all dependencies
+  Install dependencies
   ```bash
   sudo apt install -y ffmpeg fdkaac php-cli php-intl php-json php-mbstring php-xml php-curl php-zip
   ```
 
-  #install mp4v2-utils (https://github.com/enzo1982/mp4v2/ or https://mp4v2.org/)
+  Install mp4v2-utils (https://github.com/enzo1982/mp4v2/ or https://mp4v2.org/)
   ```bash
   wget https://github.com/enzo1982/mp4v2/releases/download/v2.1.3/mp4v2-2.1.3.tar.bz2
   bunzip2 mp4v2-2.1.3.tar.bz2
@@ -228,17 +226,17 @@ sudo apt install -y ./vscode.deb
   cd mp4v2-2.1.3
   ./configure && make && sudo make install
   ```
-  #install / upgrade m4b-tool
+  Install / upgrade m4b-tool
   ```bash
   sudo wget https://github.com/sandreas/m4b-tool/releases/download/v0.5.2/m4b-tool.phar -O /usr/local/bin/m4b-tool && sudo chmod +x /usr/local/bin/m4b-tool
   ```
 
-  #check installed m4b-tool version
+  Check installed m4b-tool version
   ```bash
   m4b-tool --version
   ```
 
-  #Install Tone
+  Install Tone
   ```bash
   wget https://github.com/sandreas/tone/releases/download/v0.2.5/tone-0.2.5-linux-x64.tar.gz
   tar xzf tone-*.tar.gz
