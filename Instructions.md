@@ -376,10 +376,13 @@ sudo update-grub
 ```
 
 4. Enable the X11 session additionally to Wayland
+Will not take affect until reboot
 
 ```bash
 sudo apt install -y plasma-session-x11
 ```
+
+
 
 ## Mount Drives
 Create the mount points for the Second Hard Drive and the NAS
