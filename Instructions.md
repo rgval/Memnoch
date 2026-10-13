@@ -375,29 +375,11 @@ Update your GRUB boot loader with the new values
 sudo update-grub
 ```
 
-c. Enable the X11 session additionally to Wayland - like openSUSE Tumbleweed does and like TUXEDO OS offers during installation
-(e.g. because you encounter problems in Wayland or use certain programs that require a “real” X11 session).
-sudo apt update && sudo apt install plasma-session-x11
+4. Enable the X11 session additionally to Wayland
 
-(this installs the X11 session)
-
-d. Always start with an empty session
-(e.g. for stability, performance or security reasons).
-
-Go to -> System Settings -> Session (section: System) -> Desktop Session -> Session Restore
-and set “On login, launch apps that were open:”
-to “Start with an empty session”.
-Click [Apply].
-
-You will have to log out and in again or reboot to apply the change.
-
-
-e. Disable fast user switching
-(e.g. for security or performance reasons in multi-user setups).
-    • echo -e "\n[KDE Action Restrictions] [\$i]\naction/switch_user=false\naction/start_new_session=false" | sudo tee -a /etc/xdg/kdeglobals
-(this writes the modified values for all users to your system)
-You will have to log out and in again or reboot to apply the change.
-
+```bash
+sudo apt install -y plasma-session-x11
+```
 
 ## Mount Drives
 Create the mount points for the Second Hard Drive and the NAS
