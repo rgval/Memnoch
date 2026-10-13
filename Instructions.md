@@ -343,34 +343,36 @@ The change will only be applied after a reboot
 sudo mkdir -p /etc/systemd/system.conf.d && echo -e "# Reduce timeout (default = 90s)\n\n[Manager]\nDefaultTimeoutStopSec=15s" | sudo tee /etc/systemd/system.conf.d/99-systemtimeout.conf
 sudo mkdir -p /etc/systemd/user.conf.d && echo -e "# Reduce timeout (default = 90s)\n\n[Manager]\nDefaultTimeoutStopSec=15s" | sudo tee /etc/systemd/user.conf.d/99-usertimeout.conf
 ```
-(this writes the modified value for the user processes to your system)
 
-
-
-3. Change GRUB (the boot loader) to show the boot menu for 1 second in single-boot setups
-(= only Kubuntu is installed - this makes the boot menu much easier to access whenever you might need it).
-
+3. Change GRUB (the boot loader) to show the boot menu for 5s second in single-boot setups
 Makes a backup of your /etc/default/grub​ file first
 
-`sudo cp /etc/default/grub /etc/default/grub.orig`
+```bash
+sudo cp /etc/default/grub /etc/default/grub.orig
+```
 
 Make GRUB show the boot menu
     
-`sudo sed -i 's/GRUB_TIMEOUT_STYLE=hidden/GRUB_TIMEOUT_STYLE=menu/' /etc/default/grub`
+```bash
+sudo sed -i 's/GRUB_TIMEOUT_STYLE=hidden/GRUB_TIMEOUT_STYLE=menu/' /etc/default/grub
+```
 
 Write the timeout value to your system
 
-`sudo sed -i 's/GRUB_TIMEOUT=0/GRUB_TIMEOUT=5/' /etc/default/grub`
+```bash 
+sudo sed -i 's/GRUB_TIMEOUT=0/GRUB_TIMEOUT=5/' /etc/default/grub
+```
 
 Keeps the timeout value if GRUB has "problems" with a partition - could be e.g. Btrfs or LVM)
 
-`echo -e "\n# Match RECORDFAIL_TIMEOUT to TIMEOUT\nGRUB_RECORDFAIL_TIMEOUT=​\$GRUB_TIMEOUT" | sudo tee -a /etc/default/grub`
+```bash
+echo -e "\n# Match RECORDFAIL_TIMEOUT to TIMEOUT\nGRUB_RECORDFAIL_TIMEOUT=​\$GRUB_TIMEOUT" | sudo tee -a /etc/default/grub
+```
 
 Update your GRUB boot loader with the new values
 
-`sudo update-grub`
-
-sudo apt autopurge && sudo apt autoclean
+```bash
+sudo update-grub
 ```
 
 c. Enable the X11 session additionally to Wayland - like openSUSE Tumbleweed does and like TUXEDO OS offers during installation
