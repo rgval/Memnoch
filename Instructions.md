@@ -329,27 +329,22 @@ To verify the status of your firewall rules:
 ## System Updates
 
 1. Reduce swappiness for desktop installations like it is suggested for Ubuntu
-(= the system will prioritize freeing up parts of physical memory a bit more over using the swap file or partition).
-
-If you are curious you can check the setting before and after the reboot with sudo sysctl vm.swappiness.
-`echo -e "# Reduce swappiness for desktop installation (default = 60)\nvm.swappiness=10" | sudo tee /etc/sysctl.d/99-sysswappiness.conf`
-
-(this writes the modified value to your system)
+If you are curious you can check the setting before and after the reboot with `sudo sysctl vm.swappiness`.
 The change will only be applied after a reboot
 
+```bash
+echo -e "# Reduce swappiness for desktop installation (default = 60)\nvm.swappiness=10" | sudo tee /etc/sysctl.d/99-sysswappiness.conf
+```
 
-2. Reduce systemd timeouts for desktop installations like KDE suggests for Plasma in their Distribution/Packaging Recommendations
-(= the system will not "hang" for 90 seconds - which is the default value - from time to time when logging out, rebooting or shutting down).
+2. Reduce systemd timeouts for desktop installations
+The change will only be applied after a reboot
 
-I am still quite conservative here and use 15 seconds because on older machines it has seldom taken as long as 10–14 seconds for certain processes to quit gracefully by themselves (for example: KDE neon uses 16 seconds, TUXEDO OS and Garuda KDE use 10 seconds).
-`sudo mkdir -p /etc/systemd/system.conf.d && echo -e "# Reduce timeout (default = 90s)\n\n[Manager]\nDefaultTimeoutStopSec=15s" | sudo tee /etc/systemd/system.conf.d/99-systemtimeout.conf`
-
-(this writes the modified value for the system processes to your system)
-
-`sudo mkdir -p /etc/systemd/user.conf.d && echo -e "# Reduce timeout (default = 90s)\n\n[Manager]\nDefaultTimeoutStopSec=15s" | sudo tee /etc/systemd/user.conf.d/99-usertimeout.conf`
-
+```bash
+sudo mkdir -p /etc/systemd/system.conf.d && echo -e "# Reduce timeout (default = 90s)\n\n[Manager]\nDefaultTimeoutStopSec=15s" | sudo tee /etc/systemd/system.conf.d/99-systemtimeout.conf
+sudo mkdir -p /etc/systemd/user.conf.d && echo -e "# Reduce timeout (default = 90s)\n\n[Manager]\nDefaultTimeoutStopSec=15s" | sudo tee /etc/systemd/user.conf.d/99-usertimeout.conf
+```
 (this writes the modified value for the user processes to your system)
-The change will only be applied after a reboot
+
 
 
 3. Change GRUB (the boot loader) to show the boot menu for 1 second in single-boot setups
