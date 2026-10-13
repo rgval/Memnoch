@@ -144,6 +144,8 @@ sudo apt install -y bashtop bleachbit filelight  dolphin elisa errands file-roll
 - filezilla
 - hexchat
 - Konversation
+- ktorrent
+- qbittorrent
 - nfs-common
 - remmina
 - sabnzbdplus
