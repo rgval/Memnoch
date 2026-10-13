@@ -243,60 +243,51 @@ sudo apt install -y ./vscode.deb
   sudo mv tone*/tone /usr/local/bin/
   tone --help
   ```
+- GitHub Desktop
 
+  Download and add the GPG security key
+  ```bash
+  wget -qO - https://mirror.mwt.me/shiftkey-desktop/gpgkey | gpg --dearmor | sudo tee /etc/apt/keyrings/mwt-desktop.gpg > /dev/null
+  ```
+  Add the software repository source
+  ```bash
+  sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/mwt-desktop.gpg] https://mirror.mwt.me/shiftkey-desktop/deb/ any main" > /etc/apt/sources.list.d/mwt-desktop.list'
+  ```
+  Update package lists and install GitHub Desktop
+  ```bash
+  sudo apt update
+  sudo apt install github-desktop
+  ```
+
+- Thunderbird
+
+  Add the PPA
+  ```Bash
+  sudo add-apt-repository ppa:mozillateam/ppa
+  ```
+  Setup PPA Priority
+  `sudo nano /etc/apt/preferences.d/mozillateamppa'
+  
+  ```bash
+  Package: thunderbird*
+  Pin: release o=LP-PPA-mozillateam
+  Pin-Priority: 1001
+  
+  Package: thunderbird*
+  Pin: release o=Ubuntu
+  Pin-Priority: -1
+  ```
+  Install Thunderbird Deb package
+  ```bash
+  sudo apt update
+  sudo apt install thunderbird
+  ```
 
 ## After Install Changes
 
-### Install Thunderbird via PPA
-The Ubuntu Team members have been maintaining the “Mozilla Team” PPA for many years. The PPA contains the Thunderbird ESR (v140 so far), Firefox ESR, and Firefox stable as .deb packages.
-The PPA is “official” but maintained by Ubuntu Team. So far, it supports Ubuntu 26.04, Ubuntu 25.10, Ubuntu 24.04, Ubuntu 22.04, and Ubuntu 20.04.
-
-1. Add the PPA
-
-```
-PPA: 
-sudo add-apt-repository ppa:mozillateam/ppa
-```
-
-2. Setup PPA Priority
-The Thunderbird DEB package in Ubuntu repository is a wrapper for the SNAP, which has higher version number! You need to setup a higher priority for the PPA package.
-To do so, run command to create & edit config file:
-
-`sudo nano /etc/apt/preferences.d/mozillateamppa`
-
-Here I user nano text editor works in most desktops. You may replace it with gnome-text-editor for default GNOME, or other editor depends on your desktop environment.
-When file opens, paste following lines and save it:
-
-```
-Package: thunderbird*
-Pin: release o=LP-PPA-mozillateam
-Pin-Priority: 1001
-```
-
-For choice, you may add 3 more lines below:
-
-```
-Package: thunderbird*
-Pin: release o=Ubuntu
-Pin-Priority: -1
-```
-
-It sets the  priority of thunderbird packages from PPA to 1001, and the one from system repository to -1 which will prevent it from being installed.
-
-3. Install Thunderbird Deb package
-Now, you need to run the command below to manually refresh system package cache:
-
-`sudo apt update`
-
-Finally, run apt install command to install the .deb package from PPA:
-
-`sudo apt install thunderbird`
-
-If you everything goes well, it should output that’s getting package from ppa.launchpadcontent.net
-
 ### Enable Restricted and Multiverse Repositories
 
-```
+```bash
 sudo add-apt-repository restricted
 sudo add-apt-repository multiverse
 ```
